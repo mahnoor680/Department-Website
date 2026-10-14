@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCWUS - Department of Computer Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#17324D',
+                            50: '#f0f5fa',
+                            100: '#e1ebd4',
+                            800: '#13283e',
+                            900: '#0d1c2d',
+                        },
+                        teal: {
+                            DEFAULT: '#0F766E',
+                             hover: '#0D655E',
+                            light: '#149187',
+                            50: '#f0fdfa',
+                        },
+                        lightblue: '#EAF4FF',
+                        softgray: '#F8FAFC',
+                        gold: {
+                            DEFAULT: '#C9A227',
+                            hover: '#B38F20',
+                            light: '#FEF9C3'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #17324D;
+        }
+
+        /* Glassmorphic elements */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* CS Hero Background styling */
+        .hero-bg {
+            background-image: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.94) 40%, rgba(255,255,255,0.78) 100%), 
+                              url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Modal Smooth Fade */
+        .modal-active {
+            display: flex !important;
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+        /* Image cards for Vision / Mission / Academic Excellence */
+.img-card {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.img-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,28,45,0.95) 0%, rgba(23,50,77,0.80) 55%, rgba(23,50,77,0.60) 100%);
+    transition: background 0.3s ease;
+}
+.img-card:hover::before {
+    background: linear-gradient(to top, rgba(13,28,45,0.90) 0%, rgba(15,118,110,0.70) 100%);
+}
+.img-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-white text-navy selection:bg-teal selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Title -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-navy text-white rounded-xl flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform duration-200">
+                        CS
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-lg text-navy leading-tight tracking-tight">GCWUS</div>
+                        <div class="text-xs font-semibold text-teal tracking-wide">Department of Computer Science</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-sm font-semibold text-slate-700">
+                    <a href="#home" class="px-3 py-2 rounded-lg bg-lightblue text-teal font-bold transition">Home</a>
+                    <a href="#about" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">About</a>
+                    <a href="#programs" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">Programs</a>
+                    <a href="#faculty" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">Faculty</a>
+                    <a href="#research" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">Research</a>
+                    <a href="#labs" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">Labs</a>
+                    <a href="#news" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">News & Events</a>
+                    <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-teal transition">Contact</a>
+                </nav>
+
+                <!-- Action Button & Mobile Trigger -->
+                <div class="flex items-center space-x-3">
+                    <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-teal hover:bg-teal-hover text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i> Admissions 2026
+                    </a>
+                    <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block px-4 py-2.5 rounded-lg bg-lightblue text-teal font-bold">Home</a>
+            <a href="#about" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">About</a>
+            <a href="#programs" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Programs</a>
+            <a href="#faculty" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Faculty</a>
+            <a href="#research" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Research</a>
+            <a href="#labs" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Labs</a>
+            <a href="#news" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">News & Events</a>
+            <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block w-full text-center px-5 py-3 rounded-xl bg-teal text-white font-bold shadow-md">
+                    <i class="fa-solid fa-graduation-cap mr-2"></i> Admissions 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-bg min-h-[85vh] relative flex items-center py-16 lg:py-24 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-teal text-xs font-semibold shadow-xs">
+                        <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+                        <span>Government College Women University Sialkot</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy tracking-tight leading-[1.15]">
+                        Empowering Women <br class="hidden sm:inline">Through <span class="text-teal">Computer Science</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed">
+                        Discover, innovate, and shape the digital future through cutting-edge computer science education, software engineering, AI research, and computing technology.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                        <a href="#programs" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-teal hover:bg-teal-hover text-white font-bold shadow-lg shadow-teal/20 transition-all duration-200 transform hover:-translate-y-0.5">
+                            Explore Academic Programs <i class="fa-solid fa-arrow-right ml-2.5 text-sm"></i>
+                        </a>
+                        <a href="#faculty" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-navy font-bold border border-slate-300 shadow-sm transition-all duration-200">
+                            Meet Our Faculty <i class="fa-solid fa-user-graduate ml-2.5 text-sm text-teal"></i>
+                        </a>
+                    </div>
+
+                    <!-- Key Stats Counter -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-200/70 max-w-lg">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-navy">2013</div>
+                            <div class="text-xs sm:text-sm font-medium text-slate-500">Established</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-teal">8+</div>
+                            <div class="text-xs sm:text-sm font-medium text-slate-500">Verified Faculty</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-navy">3+</div>
+                            <div class="text-xs sm:text-sm font-medium text-slate-500">Modern Tech Labs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating CS Feature Showcase Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-2xl relative z-10 border border-slate-200">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-navy text-sm sm:text-base">Women in STEM Leadership</h3>
+                                    <p class="text-xs text-slate-500">Faculty of Natural Sciences</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-teal-50 text-teal font-bold text-xs border border-teal/20">HEC Approved</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-100 flex items-start space-x-3">
+                                <i class="fa-solid fa-laptop-code text-teal text-lg mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-navy text-xs sm:text-sm">Contemporary Curriculum</h4>
+                                    <p class="text-xs text-slate-500 mt-0.5">Aligned with NCEAC guidelines & modern technology trends.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-100 flex items-start space-x-3">
+                                <i class="fa-solid fa-microchip text-teal text-lg mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-navy text-xs sm:text-sm">Specialized Computing Labs</h4>
+                                    <p class="text-xs text-slate-500 mt-0.5">High-speed computers for AI, Web engineering, and Cloud systems.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-100 flex items-start space-x-3">
+                                <i class="fa-solid fa-award text-teal text-lg mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-navy text-xs sm:text-sm">Scholarly Research</h4>
+                                    <p class="text-xs text-slate-500 mt-0.5">Active research publications in AI, Machine Learning & Cybersecurity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-white border-b border-slate-100">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Card 1: Vision -->
+    <div class="img-card rounded-2xl p-8 min-h-[320px] flex flex-col justify-end border border-slate-200/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+         style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');">
+        <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm text-white flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Our Vision</h3>
+        <p class="text-slate-200 text-sm leading-relaxed">To become a center of excellence in computer science education and research, empowering female graduates to lead digital transformation globally.</p>
+    </div>
+
+    <!-- Card 2: Mission -->
+    <div class="img-card rounded-2xl p-8 min-h-[320px] flex flex-col justify-end border border-slate-200/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+         style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');">
+        <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm text-white flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Our Mission</h3>
+        <p class="text-slate-200 text-sm leading-relaxed">To impart high-quality technical knowledge, foster critical thinking, ethics, and hands-on skills required to solve complex real-world computing problems.</p>
+    </div>
+
+    <!-- Card 3: Academic Excellence -->
+    <div class="img-card rounded-2xl p-8 min-h-[320px] flex flex-col justify-end border border-slate-200/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+         style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80');">
+        <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm text-white flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">Academic Excellence</h3>
+        <p class="text-slate-200 text-sm leading-relaxed">Offering HEC and NCEAC recognized degree programs with state-of-the-art computer laboratories and research mentorship.</p>
+    </div>
+</div>
+    </section>
+
+    <!-- ACADEMIC PROGRAMS -->
+    <section id="programs" class="py-20 bg-lightblue/40 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal font-bold text-sm tracking-wider uppercase mb-2 block">Academic Programs</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">Future-Ready Degree Programs</h2>
+                <p class="mt-4 text-slate-600 text-base">Comprehensive degree pathways designed to build strong theoretical foundations and practical expertise.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- BS Computer Science -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col group">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="BS CS Code Background" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-teal text-white text-xs font-bold px-3 py-1 rounded-full shadow">Undergraduate</span>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-extrabold text-white">BS Computer Science</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-4 text-xs font-semibold text-slate-500 mb-4">
+                                <span><i class="fa-regular fa-clock text-teal mr-1"></i> 4 Years (8 Semesters)</span>
+                                <span><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> Morning / Evening</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4 leading-relaxed">Focuses on core programming, algorithms, artificial intelligence, database systems, and software engineering principles.</p>
+                        </div>
+                        <button onclick="openModal('program-bscs')" class="w-full py-2.5 rounded-xl border-2 border-teal text-teal hover:bg-teal hover:text-white font-bold text-sm transition duration-200">
+                            View Program Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BS Information Technology -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col group">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="BS IT Server Background" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-teal text-white text-xs font-bold px-3 py-1 rounded-full shadow">Undergraduate</span>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-extrabold text-white">BS Information Tech</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-4 text-xs font-semibold text-slate-500 mb-4">
+                                <span><i class="fa-regular fa-clock text-teal mr-1"></i> 4 Years (8 Semesters)</span>
+                                <span><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> Morning</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4 leading-relaxed">Covers computer networks, web technologies, system administration, cloud infrastructure, and cybersecurity management.</p>
+                        </div>
+                        <button onclick="openModal('program-bsit')" class="w-full py-2.5 rounded-xl border-2 border-teal text-teal hover:bg-teal hover:text-white font-bold text-sm transition duration-200">
+                            View Program Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MS Computer Science -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col group">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="MS CS Research Background" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-gold text-navy text-xs font-bold px-3 py-1 rounded-full shadow">Postgraduate</span>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-extrabold text-white">MS Computer Science</h3>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-4 text-xs font-semibold text-slate-500 mb-4">
+                                <span><i class="fa-regular fa-clock text-teal mr-1"></i> 2 Years (4 Semesters)</span>
+                                <span><i class="fa-solid fa-book-bookmark text-teal mr-1"></i> Weekend / Eve</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4 leading-relaxed">Advanced degree emphasizing scholarly research, machine learning models, distributed systems, and master's thesis work.</p>
+                        </div>
+                        <button onclick="openModal('program-mscs')" class="w-full py-2.5 rounded-xl border-2 border-teal text-teal hover:bg-teal hover:text-white font-bold text-sm transition duration-200">
+                            View Program Details
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FACULTY DIRECTORY SECTION (REAL GCWUS FACULTY) -->
+    <section id="faculty" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-teal font-bold text-sm tracking-wider uppercase mb-2 block">Academic Leadership & Mentors</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">GCWUS Computer Science Faculty</h2>
+                <p class="mt-3 text-slate-600 text-base">Dedicated educators and researchers leading the computer science department.</p>
+            </div>
+
+            <!-- Faculty Search & Filter Tabs -->
+            <div class="mb-10 flex flex-col md:flex-row items-center justify-between gap-4 bg-softgray p-4 rounded-2xl border border-slate-200">
+                
+                <!-- Search Input -->
+                <div class="relative w-full md:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="faculty-search" placeholder="Search faculty by name..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-300 text-sm text-navy focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal">
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex items-center space-x-1 sm:space-x-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+                    <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal text-white shadow-xs transition" data-filter="all">All Faculty</button>
+                    <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-200 transition" data-filter="professor">Professors</button>
+                    <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-200 transition" data-filter="lecturer">Lecturers</button>
+                </div>
+            </div>
+
+            <!-- Faculty Grid Cards -->
+            <div id="faculty-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Faculty Member 1 -->
+                <div class="faculty-card bg-softgray rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="professor" data-name="dr. m. usman ashraf">
+                    <div>
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-16 h-16 rounded-2xl bg-navy text-white font-extrabold text-xl flex items-center justify-center shadow-md border-2 border-teal">
+                                UA
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-teal/10 text-teal font-bold text-xs">Head of Department</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy">Dr. M. Usman Ashraf</h3>
+                        <p class="text-xs font-bold text-teal mt-0.5">Associate Professor / HOD</p>
+                        <p class="text-xs text-slate-500 font-semibold mt-1"><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> PhD in Computer Science</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-200/80">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Specialization:</span>
+                            <p class="text-xs text-slate-700 leading-relaxed font-medium">Artificial Intelligence, Distributed Systems, High-Performance Computing & Cloud Networks.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-bold text-teal hover:text-navy transition">
+                            GCWUS Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> gcwus.edu.pk</span>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 2 -->
+                <div class="faculty-card bg-softgray rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="professor" data-name="ms. farzana younas">
+                    <div>
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-16 h-16 rounded-2xl bg-teal text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+                                FY
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 font-bold text-xs">Assistant Professor</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy">Ms. Farzana Younas</h3>
+                        <p class="text-xs font-bold text-teal mt-0.5">Assistant Professor</p>
+                        <p class="text-xs text-slate-500 font-semibold mt-1"><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> MS Computer Science</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-200/80">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Specialization:</span>
+                            <p class="text-xs text-slate-700 leading-relaxed font-medium">Software Engineering, Data Mining, Database Design & Object-Oriented Analysis.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-bold text-teal hover:text-navy transition">
+                            GCWUS Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> gcwus.edu.pk</span>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 3 -->
+                <div class="faculty-card bg-softgray rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="lecturer" data-name="ms. arfa skandar">
+                    <div>
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-16 h-16 rounded-2xl bg-navy text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+                                AS
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 font-bold text-xs">Lecturer</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy">Ms. Arfa Skandar</h3>
+                        <p class="text-xs font-bold text-teal mt-0.5">Lecturer in CS</p>
+                        <p class="text-xs text-slate-500 font-semibold mt-1"><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> MS Computer Science</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-200/80">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Specialization:</span>
+                            <p class="text-xs text-slate-700 leading-relaxed font-medium">Web Engineering, Front-end Frameworks, Database Systems & Programming Fundamentals.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-bold text-teal hover:text-navy transition">
+                            GCWUS Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> gcwus.edu.pk</span>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 4 -->
+                <div class="faculty-card bg-softgray rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="lecturer" data-name="dr. iqra ilyas">
+                    <div>
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-16 h-16 rounded-2xl bg-teal text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+                                II
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 font-bold text-xs">Lecturer</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy">Dr. Iqra Ilyas</h3>
+                        <p class="text-xs font-bold text-teal mt-0.5">Lecturer in CS</p>
+                        <p class="text-xs text-slate-500 font-semibold mt-1"><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> PhD in Computer Science</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-200/80">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Specialization:</span>
+                            <p class="text-xs text-slate-700 leading-relaxed font-medium">Machine Learning, Computer Vision, Digital Image Processing & Pattern Recognition.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-bold text-teal hover:text-navy transition">
+                            GCWUS Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> gcwus.edu.pk</span>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 5 -->
+                <div class="faculty-card bg-softgray rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="lecturer" data-name="ms. qurat-ul-ain">
+                    <div>
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-16 h-16 rounded-2xl bg-navy text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+                                QA
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 font-bold text-xs">Lecturer</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy">Ms. Qurat-ul-ain</h3>
+                        <p class="text-xs font-bold text-teal mt-0.5">Lecturer in CS</p>
+                        <p class="text-xs text-slate-500 font-semibold mt-1"><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> MS Computer Science</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-200/80">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Specialization:</span>
+                            <p class="text-xs text-slate-700 leading-relaxed font-medium">Information Security, Design & Analysis of Algorithms, Cryptography & Theory of Automata.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-bold text-teal hover:text-navy transition">
+                            GCWUS Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> gcwus.edu.pk</span>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 6 -->
+                <div class="faculty-card bg-softgray rounded-2xl p-6 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-category="lecturer" data-name="mr. shahid anwar">
+                    <div>
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-16 h-16 rounded-2xl bg-teal text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+                                SA
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-700 font-bold text-xs">Lecturer</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy">Mr. Shahid Anwar</h3>
+                        <p class="text-xs font-bold text-teal mt-0.5">Lecturer in CS</p>
+                        <p class="text-xs text-slate-500 font-semibold mt-1"><i class="fa-solid fa-graduation-cap text-teal mr-1"></i> MS Computer Science</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-200/80">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Specialization:</span>
+                            <p class="text-xs text-slate-700 leading-relaxed font-medium">Computer Communications, Network Security, Wireless Sensor Networks & Cloud Infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="inline-flex items-center text-xs font-bold text-teal hover:text-navy transition">
+                            GCWUS Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                        </a>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-envelope text-slate-400 mr-1"></i> gcwus.edu.pk</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & TECHNOLOGY -->
+    <section id="research" class="py-20 bg-lightblue/30 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal font-bold text-sm tracking-wider uppercase mb-2 block">Research & Development</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">Key Research Domains</h2>
+                <p class="mt-3 text-slate-600 text-base">Active research groups focusing on high-impact technologies.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Research Card 1 -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="AI Research" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/60 to-transparent p-6 flex flex-col justify-end">
+                        <i class="fa-solid fa-brain text-gold text-2xl mb-2"></i>
+                        <h3 class="text-xl font-bold text-white">Artificial Intelligence</h3>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Deep learning, natural language processing, computer vision, and expert system applications.</p>
+                    </div>
+                </div>
+
+                <!-- Research Card 2 -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data Science Research" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/60 to-transparent p-6 flex flex-col justify-end">
+                        <i class="fa-solid fa-chart-line text-teal-light text-2xl mb-2"></i>
+                        <h3 class="text-xl font-bold text-white">Data Analytics</h3>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Big data modeling, predictive analytics, data visualization, and statistical learning.</p>
+                    </div>
+                </div>
+
+                <!-- Research Card 3 -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Cybersecurity Research" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/60 to-transparent p-6 flex flex-col justify-end">
+                        <i class="fa-solid fa-shield-halved text-gold text-2xl mb-2"></i>
+                        <h3 class="text-xl font-bold text-white">Cybersecurity</h3>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Network security, encryption protocols, ethical hacking, and vulnerability testing.</p>
+                    </div>
+                </div>
+
+                <!-- Research Card 4 -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Cloud Systems" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/60 to-transparent p-6 flex flex-col justify-end">
+                        <i class="fa-solid fa-cloud text-teal-light text-2xl mb-2"></i>
+                        <h3 class="text-xl font-bold text-white">Cloud Systems</h3>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Distributed computing, IoT architectures, microservices, and containerization.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPUTER LABORATORIES -->
+    <section id="labs" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal font-bold text-sm tracking-wider uppercase mb-2 block">State-Of-The-Art Facilities</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">Computing Laboratories</h2>
+                <p class="mt-3 text-slate-600 text-base">Fully equipped computer labs to support practical development, software engineering, and AI experiments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Lab 1 -->
+                <div class="bg-softgray rounded-2xl p-6 border border-slate-200">
+                    <div class="h-44 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Software Engineering Lab" class="w-full h-full object-cover">
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-teal/10 text-teal font-bold text-xs">Lab 01</span>
+                    <h3 class="text-xl font-extrabold text-navy mt-2">Software Engineering Lab</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Dedicated lab equipped with high-performance PCs, modern IDEs, git version control, and database servers for undergraduate coding coursework.</p>
+                    <ul class="mt-4 text-xs font-semibold text-slate-500 space-y-1.5 border-t border-slate-200 pt-3">
+                        <li><i class="fa-solid fa-check text-teal mr-2"></i> 40 High-Speed Workstations</li>
+                        <li><i class="fa-solid fa-check text-teal mr-2"></i> High-Speed Internet Backbone</li>
+                    </ul>
+                </div>
+
+                <!-- Lab 2 -->
+                <div class="bg-softgray rounded-2xl p-6 border border-slate-200">
+                    <div class="h-44 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="AI & Data Science Lab" class="w-full h-full object-cover">
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-teal/10 text-teal font-bold text-xs">Lab 02</span>
+                    <h3 class="text-xl font-extrabold text-navy mt-2">AI & Data Science Lab</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Specialized computing unit equipped with GPU workstations for training machine learning models, deep neural networks, and big data analysis.</p>
+                    <ul class="mt-4 text-xs font-semibold text-slate-500 space-y-1.5 border-t border-slate-200 pt-3">
+                        <li><i class="fa-solid fa-check text-teal mr-2"></i> NVIDIA GPU Accelerated Systems</li>
+                        <li><i class="fa-solid fa-check text-teal mr-2"></i> Python, PyTorch, TensorFlow Suite</li>
+                    </ul>
+                </div>
+
+                <!-- Lab 3 -->
+                <div class="bg-softgray rounded-2xl p-6 border border-slate-200">
+                    <div class="h-44 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?auto=format&fit=crop&w=600&q=80" alt="General Hardware & Networks Lab" class="w-full h-full object-cover">
+                    </div>
+                    <span class="px-3 py-1 rounded-full bg-teal/10 text-teal font-bold text-xs">Lab 03</span>
+                    <h3 class="text-xl font-extrabold text-navy mt-2">General Networks Lab</h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Equipped with Cisco networking hardware, routers, switches, and network simulators to provide hands-on experience in computer networking.</p>
+                    <ul class="mt-4 text-xs font-semibold text-slate-500 space-y-1.5 border-t border-slate-200 pt-3">
+                        <li><i class="fa-solid fa-check text-teal mr-2"></i> Hardware Racks & Switches</li>
+                        <li><i class="fa-solid fa-check text-teal mr-2"></i> Packet Tracer & Wireshark Workstations</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS & EVENTS -->
+    <section id="news" class="py-20 bg-lightblue/30 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-teal font-bold text-sm tracking-wider uppercase mb-2 block">Updates & Activities</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">News & Events</h2>
+                <p class="mt-3 text-slate-600 text-base">Stay updated with departmental workshops, programming contests, and announcements.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Event 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Seminar Event" class="w-full h-full object-cover" alt="Seminar Event" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-navy text-white text-xs font-bold px-3 py-1 rounded-lg">Workshop</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-teal mb-2"><i class="fa-regular fa-calendar mr-1"></i> October 2026</div>
+                        <h3 class="text-lg font-bold text-navy mb-2">Women in Tech Seminar Series</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Guest lecture by industry experts on artificial intelligence careers and software engineering standards.</p>
+                        <a href="#contact" class="text-xs font-bold text-teal hover:text-navy inline-flex items-center">Read Announcement <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="h-48 relative">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" alt="Speed Programming Event" class="w-full h-full object-cover">                        <span class="absolute top-3 left-3 bg-teal text-white text-xs font-bold px-3 py-1 rounded-lg">Competition</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-teal mb-2"><i class="fa-regular fa-calendar mr-1"></i> November 2026</div>
+                        <h3 class="text-lg font-bold text-navy mb-2">Annual Speed Programming Contest</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Departmental coding competition testing students' problem-solving skills in C++, Python, and Java.</p>
+                        <a href="#contact" class="text-xs font-bold text-teal hover:text-navy inline-flex items-center">Read Announcement <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></a>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Admissions Open" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-gold text-navy text-xs font-bold px-3 py-1 rounded-lg">Notice</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold text-teal mb-2"><i class="fa-regular fa-calendar mr-1"></i> Admissions Open</div>
+                        <h3 class="text-lg font-bold text-navy mb-2">GCWUS BS & MS Admissions</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Applications are invited for BS Computer Science, BS IT, and MS Computer Science degree programs.</p>
+                        <a href="#contact" class="text-xs font-bold text-teal hover:text-navy inline-flex items-center">Apply Online <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION -->
+    <section id="contact" class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-teal font-bold text-sm tracking-wider uppercase mb-2 block">Get In Touch</span>
+                        <h2 class="text-3xl font-extrabold text-navy tracking-tight">Contact Department</h2>
+                        <p class="mt-2 text-slate-600 text-sm">Have questions regarding admissions, programs, or faculty research? Reach out to us.</p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-softgray border border-slate-200">
+                            <div class="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-sm">Campus Address</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Department of Computer Science, Government College Women University Sialkot, Kutcheri Road, Sialkot, Punjab, Pakistan.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-softgray border border-slate-200">
+                            <div class="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-sm">Phone Number</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">+92-52-9250137</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-softgray border border-slate-200">
+                            <div class="w-10 h-10 rounded-xl bg-teal/10 text-teal flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-sm">Official Email</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">cs@gcwus.edu.pk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-softgray rounded-2xl p-8 border border-slate-200">
+                        <h3 class="text-xl font-extrabold text-navy mb-6">Send an Inquiry</h3>
+                        
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+                                    <input type="text" required placeholder="e.g. Ayesha Malik" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-navy focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+                                    <input type="email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-navy focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                                    <input type="tel" placeholder="+92 300 0000000" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-navy focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Inquiry Program</label>
+                                    <select class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-navy focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal">
+                                        <option value="BS CS">BS Computer Science</option>
+                                        <option value="BS IT">BS Information Technology</option>
+                                        <option value="MS CS">MS Computer Science</option>
+                                        <option value="General">General Inquiry</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Your Message *</label>
+                                <textarea rows="4" required placeholder="Type your message or admission query here..." class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-navy focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-teal hover:bg-teal-hover text-white font-bold text-sm shadow-md hover:shadow-lg transition">
+                                Send Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                
+                <div class="md:col-span-1 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-teal text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                            CS
+                        </div>
+                        <div>
+                            <div class="font-extrabold text-base text-white">GCWUS</div>
+                            <div class="text-[11px] text-teal-light font-medium">Computer Science</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Government College Women University Sialkot is dedicated to women's higher education and empowerment through quality technology education.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-slate-400 font-medium">
+                        <li><a href="#home" class="hover:text-teal-light transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-teal-light transition">About Department</a></li>
+                        <li><a href="#faculty" class="hover:text-teal-light transition">Faculty Members</a></li>
+                        <li><a href="#research" class="hover:text-teal-light transition">Research Groups</a></li>
+                        <li><a href="#labs" class="hover:text-teal-light transition">Laboratories</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-4">Academic Programs</h4>
+                    <ul class="space-y-2 text-xs text-slate-400 font-medium">
+                        <li><a href="#programs" class="hover:text-teal-light transition">BS Computer Science (BS CS)</a></li>
+                        <li><a href="#programs" class="hover:text-teal-light transition">BS Information Tech (BS IT)</a></li>
+                        <li><a href="#programs" class="hover:text-teal-light transition">MS Computer Science (MS CS)</a></li>
+                        <li><a href="#contact" class="hover:text-teal-light transition">Admissions Guidelines</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-white uppercase tracking-wider mb-4">Official Links</h4>
+                    <ul class="space-y-2 text-xs text-slate-400 font-medium">
+                        <li><a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="hover:text-teal-light transition"><i class="fa-solid fa-globe mr-1.5"></i> GCWUS Official Website</a></li>
+                        <li><a href="https://gcwus.edu.pk/" target="_blank" rel="noopener" class="hover:text-teal-light transition"><i class="fa-solid fa-building-columns mr-1.5"></i> Faculty of Natural Sciences</a></li>
+                        <li><a href="#contact" class="hover:text-teal-light transition"><i class="fa-solid fa-envelope mr-1.5"></i> Contact Department</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Department of Computer Science, GCWUS. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">Government College Women University Sialkot, Pakistan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROGRAM DETAIL MODAL -->
+    <div id="program-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy/70 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-navy text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION MODAL -->
+    <div id="notification-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy/70 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-2xl border border-slate-200">
+            <div class="w-14 h-14 bg-teal-50 text-teal rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-xl font-bold text-navy">Message Sent Successfully!</h3>
+            <p class="text-xs text-slate-600 mt-2">Thank you for reaching out to the GCWUS Department of Computer Science. We will get back to you shortly.</p>
+            <button onclick="closeNotification()" class="mt-6 w-full py-2.5 rounded-xl bg-teal text-white font-bold text-sm">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Faculty Search & Category Filter Logic
+        const searchInput = document.getElementById('faculty-search');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const facultyCards = document.querySelectorAll('.faculty-card');
+
+        function filterFaculty() {
+            const query = searchInput.value.toLowerCase().trim();
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+
+            facultyCards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                const category = card.getAttribute('data-category');
+
+                const matchesSearch = name.includes(query);
+                const matchesCategory = activeFilter === 'all' || category === activeFilter;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterFaculty);
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-teal', 'text-white');
+                    b.classList.add('text-slate-600');
+                });
+                btn.classList.add('active', 'bg-teal', 'text-white');
+                btn.classList.remove('text-slate-600');
+                filterFaculty();
+            });
+        });
+
+        // Program Modal Details
+        const programData = {
+            'program-bscs': {
+                title: 'BS Computer Science (BS CS)',
+                duration: '4 Years (8 Semesters)',
+                eligibility: 'F.Sc Pre-Engineering / ICS / General Science with Mathematics (minimum 50% marks) or equivalent.',
+                overview: 'The BS CS program provides rigorous training in software development, data structures, algorithms, theoretical computer science, database design, and machine learning.',
+                courses: ['Programming Fundamentals', 'Object Oriented Programming', 'Data Structures & Algorithms', 'Database Systems', 'Operating Systems', 'Artificial Intelligence', 'Software Engineering']
+            },
+            'program-bsit': {
+                title: 'BS Information Technology (BS IT)',
+                duration: '4 Years (8 Semesters)',
+                eligibility: 'F.Sc / ICS / F.A with Mathematics or equivalent high school qualification.',
+                overview: 'The BS IT program prepares students for IT infrastructure, system administration, web app development, network management, and cybersecurity governance.',
+                courses: ['IT Infrastructure', 'Web Engineering', 'System & Network Administration', 'Database Management', 'Cyber Security Fundamentals', 'Cloud Computing']
+            },
+            'program-mscs': {
+                title: 'MS Computer Science (MS CS)',
+                duration: '2 Years (4 Semesters)',
+                eligibility: '16-year education in CS/IT/SE (BS 4-Year or MCS) with minimum CGPA 2.5/4.0 or 60% marks and departmental entry test.',
+                overview: 'The MS CS program emphasizes research methodologies, distributed algorithms, data mining, computer vision, and master thesis publication under faculty supervision.',
+                courses: ['Advanced Algorithms', 'Advanced OS', 'Advanced Computer Architecture', 'Machine Learning Research', 'Thesis Research']
+            }
+        };
+
+        function openModal(programId) {
+            const data = programData[programId];
+            if(!data) return;
+
+            const contentHtml = `
+                <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
+                    <h3 class="text-2xl font-extrabold text-navy">${data.title}</h3>
+                </div>
+                <div class="space-y-4 text-left">
+                    <div>
+                        <span class="text-xs font-bold text-teal uppercase tracking-wider block">Duration & Format</span>
+                        <p class="text-sm font-semibold text-slate-700">${data.duration}</p>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-teal uppercase tracking-wider block">Eligibility Criteria</span>
+                        <p class="text-xs text-slate-600 mt-1">${data.eligibility}</p>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-teal uppercase tracking-wider block">Program Overview</span>
+                        <p class="text-xs text-slate-600 mt-1 leading-relaxed">${data.overview}</p>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-teal uppercase tracking-wider block mb-2">Core Curriculum Highlights</span>
+                        <div class="flex flex-wrap gap-2">
+                            ${data.courses.map(c => `<span class="px-2.5 py-1 rounded-lg bg-softgray border border-slate-200 text-xs font-semibold text-slate-700">${c}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 pt-4 border-t border-slate-200 flex justify-end">
+                    <a href="#contact" onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-teal text-white font-bold text-xs shadow">Inquire For Admission</a>
+                </div>
+            `;
+
+            document.getElementById('modal-content').innerHTML = contentHtml;
+            const modal = document.getElementById('program-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('program-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('modal-active');
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            form.reset();
+            const modal = document.getElementById('notification-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('modal-active');
+        }
+
+        function closeNotification() {
+            const modal = document.getElementById('notification-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('modal-active');
+        }
+
+        // Close modal when clicking outside box
+        window.onclick = function(event) {
+            const modal1 = document.getElementById('program-modal');
+            const modal2 = document.getElementById('notification-modal');
+            if (event.target === modal1) closeModal();
+            if (event.target === modal2) closeNotification();
+        }
+    </script>
+</body>
+</html>
