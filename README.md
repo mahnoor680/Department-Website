@@ -1,4 +1,4 @@
-GCWUS Department of Computer Science Website
+<b>GCWUS Department of Computer Science Website<b>
 
 A modern, responsive website for the Department of Computer Science at Government College Women University Sialkot (GCWUS). The website provides an overview of academic programs, faculty members, research areas, computing laboratories, departmental news, and contact information.
 
